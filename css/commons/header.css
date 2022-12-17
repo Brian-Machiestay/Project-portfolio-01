@@ -1,0 +1,51 @@
+:root {
+    --blue: rgb(153, 178, 247);
+    --black: rgb(56, 44, 44);
+}
+
+body {
+    margin: 0 10%;
+}
+
+/* general styles */
+.get_started {
+    background-color: var(--blue);
+    width: 120px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 18pt;
+}
+
+/* nav style */
+header {
+    height: 100px;
+    padding-top: 50px;
+    display: flex;
+}
+nav ul li a {
+    font-weight: bold;
+    font-size: 14pt;
+}
+header a {
+    text-decoration: none;
+    margin-right: auto;
+}
+
+header a p.get_started{
+    margin-left: 300px;
+}
+nav {
+    width: 50%;
+}
+nav ul {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+nav a.get_started {
+    margin-left: auto;
+}
+nav.logo {
+    width: 15%;
+}
