@@ -90,3 +90,45 @@ h3 {
     margin-top: 10px;
     width: 400px;
 }
+
+/* styles for pre-section 3 */
+.what_said {
+    width: 100%;
+    text-align: center;
+    margin-top: 100px;
+    margin-bottom: 20px;
+    font-size: 20pt;
+}
+
+/* styles for section 3 */
+#section3 {
+    display: flex;
+    justify-content: space-between;
+    margin-left: -8%;
+    margin-right: -8%;
+}
+.person {
+    background-color: rgb(248, 246, 246);
+    margin-right: 20px;
+    height: 200px;
+    border-radius: 10px;
+}
+
+#section3 .person .images {
+    width: 50px;
+    margin-top: -15px;
+    margin-left: 40%;
+}
+#section3 .person .images img {
+    width: 100%;
+}
+
+#section3 .person .person_name {
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+#section3 .person .speech {
+    margin-top: 5px;
+    text-align: center;
+}
