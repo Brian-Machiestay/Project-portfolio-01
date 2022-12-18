@@ -1,0 +1,37 @@
+/* landing page main style */
+
+/* style for section1 */
+#section1 {
+    display: flex;
+    justify-content: space-between;
+}
+
+#sec1_part1 {
+    display: flex;
+    flex-direction: column;
+    height: 40vh;
+    margin-top: 50px;
+}
+
+#sec1_part1 .get_started {
+    margin-top: 30px;
+}
+
+#sec1_part1 h1 {
+    font-size: 25pt;
+    font-weight: bold;
+    width: 300px;
+}
+
+#sec1_part1 p.simple {
+    width: 300px;
+    margin-top: 30px;
+}
+#chart {
+    height: 300px;
+}
+img {
+    height: 100%;
+}
+
+/* style for section2 */
