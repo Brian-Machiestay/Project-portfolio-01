@@ -1,5 +1,5 @@
 :root {
-    --blue: rgb(242, 101, 14);
+    --red: rgb(242, 101, 14);
     --black: rgb(56, 44, 44);
 }
 
@@ -9,7 +9,7 @@ body {
 
 /* general styles */
 .get_started {
-    background-color: var(--blue);
+    background-color: var(--red);
     width: 100px;
     border-radius: 100px;
     text-align: center;
@@ -27,12 +27,20 @@ body {
     font-size: 40pt;
     margin-top: -15px;
 }
+
+main {
+    padding-top: 150px;
+}
 /* nav style */
 header {
-    height: 130px;
+    height: 120px;
     padding-top: 50px;
     display: flex;
     justify-content: space-between;
+    width: 80%;
+    margin-bottom: 5px;
+    background-color: white;
+    position: fixed;
 }
 
 nav ul {
@@ -48,5 +56,5 @@ nav ul li a {
     color: var(--black);
 }
 nav ul li a:last-child {
-    margin-right: 20px;
+    margin-right: 2px;
 }
