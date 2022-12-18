@@ -29,7 +29,7 @@ body {
 }
 /* nav style */
 header {
-    height: 100px;
+    height: 130px;
     padding-top: 50px;
     display: flex;
     justify-content: space-between;
