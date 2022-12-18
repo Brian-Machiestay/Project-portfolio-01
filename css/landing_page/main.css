@@ -35,3 +35,33 @@ img {
 }
 
 /* style for section2 */
+#section2 {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 70px;
+    height: 50vh;
+}
+
+#sec2_part1 {
+    width: 50%;
+    margin-right: 80px;
+}
+#sec2_part1 h2 {
+    font-size: 18pt;
+    font-weight: bold;
+    width: 300px;
+}
+
+#sec2_part1 p {
+    margin-top: 30px;
+    width: 300px;
+}
+
+#sec2_part2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+#sec2_part2 .differences {
+    display: flex;
+}
