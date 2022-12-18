@@ -1,5 +1,15 @@
 /* landing page main style */
 
+/* general styles */
+.button {
+    background-color: var(--blue);
+    height: 20pt;
+    padding-top: 5px;
+    width: 40px;
+    border-radius: 20px;
+    text-align: center;
+}
+
 /* style for section1 */
 #section1 {
     display: flex;
@@ -64,4 +74,19 @@ img {
 }
 #sec2_part2 .differences {
     display: flex;
+    justify-content: space-between;
+}
+
+#sec2_part2 .differences .button {
+    margin-right: 20px;
+}
+
+h3 {
+    font-weight: bold;
+    font-size: 12pt;
+}
+
+.differences .the_diffs p {
+    margin-top: 10px;
+    width: 400px;
 }
