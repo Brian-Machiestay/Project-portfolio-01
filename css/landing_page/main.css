@@ -104,8 +104,8 @@ h3 {
 #section3 {
     display: flex;
     justify-content: space-between;
-    margin-left: -8%;
-    margin-right: -8%;
+    margin-left: -12%;
+    margin-right: -12%;
 }
 .person {
     background-color: rgb(248, 246, 246);
@@ -134,4 +134,30 @@ h3 {
 }
 main .get_started {
     margin: 20px auto;
+}
+
+/* styles for section 4 */
+#section4 {
+    background-color: var(--red);
+    margin-top: 40px;
+    margin-left: -12%;
+    margin-right: -12%;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    background-image: url("../../images/bg-simplify-section-desktop.svg");
+}
+
+#section4 p {
+    padding: 40px;
+    width: 250px;
+    font-weight: bold;
+    color: white;
+}
+
+#section4 .get_started {
+    color: var(--red);
+    background-color: white;
+    height: 22pt;
+    margin-top: 40px;
 }
