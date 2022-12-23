@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="./css/commons/reset.css">
   <link rel="stylesheet" href="./css/commons/header.css">
   <link rel="stylesheet" href="./css/landing_page/main.css">
+  <link rel="stylesheet" href="./css/commons/footer.css">
   <title>DavaVis</title>
 </head>
 <body>
@@ -24,7 +25,7 @@
       </ul>
     </nav>
 
-    <a href="#" class="rm_underline"><p class="get_started">Get Started</p></a>
+    <a href="#" class="rm_underline get_started">Get Started</a>
   </header>
 
   <!-- the main section-->
@@ -36,13 +37,13 @@
         <p class="simple">Manage makes it simple for software teams to plan day-to-day 
         tasks while keeping the larger team goals in view</p>
 
-        <p class="get_started">Get Started</p>
+        <a href="#" class="rm_underline"><p class="get_started">Get Started</p></a>
       </aside>
       <div id="chart"><img src="../images/illustration-intro.svg" alt="a chart" />
       </div>
     </section>
-    <section>
-      <aside>
+    <section id="section2">
+      <aside id="sec2_part1">
         <h2>What’s different about Manage?</h2>
 
         <p>Manage provides all the functionality your team needs, without
@@ -50,11 +51,11 @@
         product teams</p> 
       </aside>
 
-      <aside>
-        <div>
-          <p>01</p>
-          <div>
-            <p>Track company-wide progress</p>
+      <aside id="sec2_part2">
+        <div class="differences">
+          <p class="button">01</p>
+          <div class="the_diffs">
+            <h3>Track company-wide progress</h3>
             <p>See how your day-to-day tasks fit into the wider vision. Go from 
             tracking progress at the milestone level all the way done to the 
             smallest of details. Never lose sight of the bigger picture again.
@@ -62,10 +63,10 @@
           </div>
         </div>
 
-        <div>
-          <p>02</p>
-          <div>
-            <p>Advanced built-in reports</p>
+        <div class="differences">
+          <p class="button">02</p>
+          <div class="the_diffs">
+            <h3>Advanced built-in reports</h3>
             <p>Set internal delivery estimates and track progress toward company 
             goals. Our customisable dashboard helps you build out the reports 
             you need to keep key stakeholders informed.
@@ -73,10 +74,10 @@
           </div>
         </div>
 
-        <div>
-          <p>03</p>
-          <div>
-            <p>Everything you need in one place</p>
+        <div class="differences">
+          <p class="button">03</p>
+          <div class="the_diffs">
+            <h3>Everything you need in one place</h3>
             <p>Stop jumping from one service to another to communicate, store files, 
             track tasks and share documents. Manage offers an all-in-one team 
             productivity solution.
@@ -86,55 +87,65 @@
       </aside>
     </section>
 
-    <h2>What they’ve said</h2>
-    <section>
-      <div>
-        <div>
+    <h2 class="what_said">What they’ve said</h2>
+    <section id="section3">
+      <div class="person">
+        <div class="images"><img src="../images/avatar-shanai.png"/>
         </div>
-        <p>Anisha Li</p>
-        <p>“Manage has supercharged our team’s workflow. The ability to maintain 
+        <p class="person_name">Anisha Li</p>
+        <p class="speech">“Manage has supercharged our team’s workflow. The ability to maintain 
         visibility on larger milestones at all times keeps everyone motivated.”
         </p>
       </div>
 
-      <div>
-        <div>
+      <div class="person">
+        <div class="images"><img src="../images/avatar-ali.png"/>
         </div>
-        <p>Ali Bravo</p>
-        <p>“We have been able to cancel so many other subscriptions since using 
+        <p class="person_name">Ali Bravo</p>
+        <p class="speech">“We have been able to cancel so many other subscriptions since using 
         Manage. There is no more cross-channel confusion and everyone is much 
         more focused.”
         </p>
       </div>
 
-      <div>
-        <div>
+      <div class="person">
+        <div class="images"><img src="../images/avatar-richard.png"/>
         </div>
-        <p>Richard Watts</p>
-        <p>“Manage allows us to provide structure and process. It keeps us organized 
+        <p class="person_name">Richard Watts</p>
+        <p class="speech">“Manage allows us to provide structure and process. It keeps us organized 
         and focused. I can’t stop recommending them to everyone I talk to!”
         </p>
       </div>
 
-      <div>
-        <div>
+      <div class="person">
+        <div class="images"><img src="../images/avatar-anisha.png"/>
         </div>
-        <p>Shanai Gough</p>
-        <p>“Their software allows us to track, manage and collaborate on our projects 
+        <p class="person_name">Shanai Gough</p>
+        <p class="speech">“Their software allows us to track, manage and collaborate on our projects 
         from anywhere. It keeps the whole team in-sync without being intrusive.”
         </p>
       </div>
     </section>
-    <p>Get Started</p>
+    <a href="#" class="rm_underline"><p class="get_started">Get Started</p></a>
 
-    <section>
-      <p>Simplify how your team works today.
-      Get Started</p>
+    <section id="section4">
+      <p id="simplify">Simplify how your team works today.</p>
+      <a href="#" class="rm_underline get_started">Get Started</a>
     </section>
   </main>
 
   <!-- the footer -->
-  <footer>
+  <footer id="footer">
+    <div class="iconic_logo">
+      <p>DavaVis</p>
+      <div id="icons">
+        <img src="../images/icon-facebook.svg" alt="facebook"/>
+        <img src="../images/icon-pinterest.svg" alt="pinterest"/>
+        <img src="../images/icon-instagram.svg" alt="instagram"/>
+        <img src="../images/icon-twitter.svg" alt="twitter"/>
+        <img src="../images/icon-youtube.svg" alt="youtube"/>
+      </div>
+    </div>
     <ul>
       <li><a>Home</a></li>
       <li><a>Pricing</a></li>
@@ -147,9 +158,11 @@
       <li><a>Privacy Policy</a></li>
     </ul>
 
-    <div>
-      <p>Updates in your inbox…</p>
-      <p>Go</p>
+    <div id="go">
+      <div id="updates">
+        <p>Updates in your inbox…</p>
+        <p>Go</p>
+      </div>
 
       <p>Copyright 2020. All Rights Reserved</p>
       <p>Coded by <a href="#">Your Name Here</a></p>
