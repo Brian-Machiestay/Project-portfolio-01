@@ -21,7 +21,7 @@ header {
     background-color: var(--red);
     margin-top: -5px;
     height: 8vh;
-    padding-top: 10px;
+    padding-top: 8px;
     position: sticky;
     top: 0;
 }
@@ -33,7 +33,6 @@ header {
     color: var(--red);
     margin-left: 10px;
 }
-
 
 /* main styles */
 main {
