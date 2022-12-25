@@ -20,6 +20,7 @@ header {
 .jombo {
     background-color: var(--red);
     margin-top: -5px;
+    margin-bottom: 4px;
     height: 8vh;
     padding-top: 8px;
     position: sticky;
@@ -37,6 +38,37 @@ header {
 /* main styles */
 main {
     min-height: 100vh;
+    padding: 0;
+    padding-left: 2px;
+}
+
+/* .options aside of main */
+.options {
+    width: 25%;
+    background-color: white;
+    height: 68vh;
+    position: sticky;
+    top: 8.5%;
+    border-radius: 12px;
+    padding-top: 1px;
+}
+
+
+.options #chart_options {
+    background-color: var(--red);
+    width: 99%;
+    height: 50%;
+    margin: auto auto;
+    border: 3px solid var(--red);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: white;
+}
+
+.options #char_options li a {
+    margin: auto;
 }
 
 
