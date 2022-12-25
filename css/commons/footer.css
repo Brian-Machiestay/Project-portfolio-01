@@ -3,7 +3,7 @@
     margin-left: -12%;
     margin-right: -12%;
     display: flex;
-    height: 100px;
+    height: 20%;
     justify-content: space-between;
 }
 
@@ -19,4 +19,18 @@
 }
  #icons {
     margin-top: 30px;
+ }
+
+ #footer ul li, #go, #go #updates, #go p {
+    margin-top: 10px;
+ }
+
+ #updates {
+    display: flex;
+ }
+
+ #updates .button {
+    margin-left: 10px;
+    background-color: white;
+    color: rgb(242, 101, 14);
  }
