@@ -45,3 +45,8 @@ main {
     margin-left: 0%;
     margin-right: 0%;
 }
+a:hover {
+    text-decoration: none;
+    color:blueviolet;
+    text-decoration: none;
+}
