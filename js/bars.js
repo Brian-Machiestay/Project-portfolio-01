@@ -1,13 +1,13 @@
+
 $( function () {
      // generate bars
-     function bars_gen(data, height, width, padding, id) {
+     function barsGen(data, height, width, padding, id) {
        let svg = d3.select(id);
        let h = height;
        let w= width;
        let pad = padding;
        svg.selectAll("rect").data(data).enter().append("rect")
        .attr("x", function(d, i) {
-            console.log(d);
             return (i * (w / data.length))
        })
        .attr("y", function (d) {
@@ -22,9 +22,56 @@ $( function () {
        .attr("fill", function (d) {
           return ("rgb(0, 0," + Math.round(d[1] * 10) + ")");
        })
+
+       
      }
 
-     // load and extract relevant data for rendering
+     // generate in-bars labels
+     function genLabels(data, height, width, padding, id) {
+       let svg = d3.select(id);
+       let h = height;
+       let w= width;
+       let pad = padding;
+       
+       svg.selectAll(".in_bars").data(data).enter().append("text")
+       .text( function (d) {
+          return(Math.round(d[1]));
+       })
+       .attr("class", "in_bars")
+       .attr("x", function(d, i) {
+          return (i * (w / data.length) + 12)
+       })
+       .attr("y", function (d) {
+          if (d[1] === 0) return (h - d[1] * 15);
+          return (h - d[1] * 15 + 15);
+       })
+       .attr("fill", function (d) {
+          if (d[1] === 0) return("black");
+          return("white")
+       });
+
+       svg.selectAll(".down_bars").data(data).enter().append("text")
+       .text( function (d) {
+          return(d[0]);
+       })
+       .attr("class", "down_bars")
+       .attr("x", function(d, i) {
+          return (i * (w / data.length) + 12)
+       })
+       .attr("y", function (d) {
+          return (h + 30);
+       })
+       .attr("fill", function (d) {
+          return("rgb(242, 101, 14)")
+       })
+       .attr("transform", function(d, i) {
+          let posX = i * (w / data.length) + 15;
+          let posY = h + 35;
+          return ("rotate(-70, " + posX + ", " + posY + ")");
+       });
+     }
+
+     // load and extract good roads data for rendering
     $.get("../js/Road-condition.json", function (data) {
         let good_roads = [];
         let regions = ["NOR","EAR","GAR","CER","BAR","ASR","WER","VOR","UER","UPW"]
@@ -42,6 +89,7 @@ $( function () {
             goodReg[1] = (count / countrds) * 100;
             good_roads.push(goodReg);
         }
-        bars_gen(good_roads, 300, 500, 2, "svg#good_rds");
+        barsGen(good_roads, 300, 500, 2, "svg#good_rds");
+        genLabels(good_roads, 300, 500, 2, "svg#good_rds")
     })
 })
