@@ -1,4 +1,30 @@
 $( function () {
+     // generate bars
+     function bars_gen(data, height, width, padding, id) {
+       let svg = d3.select(id);
+       let h = height;
+       let w= width;
+       let pad = padding;
+       svg.selectAll("rect").data(data).enter().append("rect")
+       .attr("x", function(d, i) {
+            console.log(d);
+            return (i * (w / data.length))
+       })
+       .attr("y", function (d) {
+            return (h - d[1] * 15);
+       })
+       .attr("width", function (d, i) {
+            return (w / data.length - pad)
+       })
+       .attr("height", function (d) {
+            return (d[1] * 15);
+       })
+       .attr("fill", function (d) {
+          return ("rgb(0, 0," + Math.round(d[1] * 10) + ")");
+       })
+     }
+
+     // load and extract relevant data for rendering
     $.get("../js/Road-condition.json", function (data) {
         let good_roads = [];
         let regions = ["NOR","EAR","GAR","CER","BAR","ASR","WER","VOR","UER","UPW"]
@@ -16,23 +42,6 @@ $( function () {
             goodReg[1] = (count / countrds) * 100;
             good_roads.push(goodReg);
         }
-       let svg = d3.select("svg");
-       let h = 300;
-       let w= 500;
-       let pad = 2;
-       svg.selectAll("rect").data(good_roads).enter().append("rect")
-       .attr("x", function(d, i) {
-            console.log(d);
-            return (i * (w / good_roads.length))
-       })
-       .attr("y", function (d) {
-            return (h - d[1] * 15);
-       })
-       .attr("width", function (d, i) {
-            return (w / good_roads.length - pad)
-       })
-       .attr("height", function (d) {
-            return (d[1] * 15);
-       })
+        bars_gen(good_roads, 300, 500, 2, "svg#good_rds");
     })
 })
