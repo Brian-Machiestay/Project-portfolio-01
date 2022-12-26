@@ -1,0 +1,85 @@
+/* roads condition css */
+
+/* general styles */
+.button {
+    background-color: var(--red);
+    height: 20pt;
+    padding-top: 5px;
+    width: 40px;
+    border-radius: 20px;
+    text-align: center;
+}
+body {
+    margin: 0;
+}
+header {
+    position: static;
+}
+
+/* override jombo css section style */
+.jombo {
+    background-color: var(--red);
+    margin-top: -5px;
+    margin-bottom: 4px;
+    height: 8vh;
+    padding-top: 8px;
+    position: sticky;
+    top: 0;
+}
+.jombo .nav-fill .nav-link {
+    color: white;
+}
+.jombo .nav-fill .active {
+    background-color: white;
+    color: var(--red);
+    margin-left: 10px;
+}
+
+/* main styles */
+main {
+    min-height: 100vh;
+    padding: 0;
+    padding-left: 2px;
+    display: flex;
+}
+
+/* .options aside of main */
+.options {
+    width: 25%;
+    background-color: white;
+    height: 68vh;
+    position: sticky;
+    top: 8.5%;
+    border-radius: 12px;
+    padding-top: 1px;
+}
+
+
+.options #chart_options {
+    background-color: var(--red);
+    width: 99%;
+    height: 50%;
+    margin: auto auto;
+    border: 3px solid var(--red);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: white;
+}
+
+.options #char_options li a {
+    margin: auto;
+}
+
+
+/* override some footer styles */
+#footer {
+    margin-left: 0%;
+    margin-right: 0%;
+}
+a:hover {
+    text-decoration: none;
+    color:blueviolet;
+    text-decoration: none;
+}
