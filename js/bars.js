@@ -2,6 +2,8 @@
 $( function () {
      // generate bars
      function barsGen(data, height, width, padding, id) {
+          
+       console.log(data);
        let svg = d3.select(id);
        let h = height;
        let w= width;
@@ -27,7 +29,7 @@ $( function () {
      }
 
      // generate in-bars labels
-     function genLabelsIn(data, height, width, padding, id) {
+     function genLabelsIn(data, height, width, padding, id, extra) {
        let svg = d3.select(id);
        let h = height;
        let w= width;
@@ -35,6 +37,7 @@ $( function () {
        
        svg.selectAll(".in_bars").data(data).enter().append("text")
        .text( function (d) {
+          if (extra !== null) return (Math.round(d[1]) + extra)
           return(Math.round(d[1]));
        })
        .attr("class", "in_bars")
@@ -92,25 +95,26 @@ $( function () {
      }
 
      // load and extract good roads data for rendering
-    $.get("../js/Road-condition.json", function (data) {
-        let good_roads = [];
-        let regions = ["NOR","EAR","GAR","CER","BAR","ASR","WER","VOR","UER","UPW"]
-        for (let j = 0; j < regions.length; j++) {
-            let goodReg = [];
-            let count = 0;
-            let countrds = 0;   
-            for(let i = 0; i < data.length; i++) {
-                    if (data[i]['Cond.'] === "Good"){
-                        countrds++;
-                        if (data[i]["Region"] === regions[j]) count++;
-                    }
-            }
-            goodReg[0] = regions[j];
-            goodReg[1] = (count / countrds) * 100;
-            good_roads.push(goodReg);
-        }
-        barsGen(good_roads, 300, 470, 2, "svg#good_rds");
-        genLabelsIn(good_roads, 300, 470, 2, "svg#good_rds");
-        genLabelsDown(good_roads, 300, 470, 2, "svg#good_rds");
-    })
+     $.get("../js/Road-condition.json", function (data) {
+          let good_roads = [];
+          let regions = ["NOR","EAR","GAR","CER","BAR","ASR","WER","VOR","UER","UPW"]
+          for (let j = 0; j < regions.length; j++) {
+               let goodReg = [];
+               let count = 0;
+               let countrds = 0;   
+               for(let i = 0; i < data.length; i++) {
+                         if (data[i]['Cond.'] === "Good"){
+                         countrds++;
+                         if (data[i]["Region"] === regions[j]) count++;
+                         }
+               }
+               goodReg[0] = regions[j];
+               goodReg[1] = count;
+               goodReg[1] = (count / countrds) * 100;
+               good_roads.push(goodReg);
+          }
+          barsGen(good_roads, 300, 470, 2, "svg#good_rds");
+          genLabelsIn(good_roads, 300, 470, 2, "svg#good_rds", "%");
+          genLabelsDown(good_roads, 300, 470, 2, "svg#good_rds");
+     })
 })
