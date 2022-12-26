@@ -27,7 +27,7 @@ $( function () {
      }
 
      // generate in-bars labels
-     function genLabels(data, height, width, padding, id) {
+     function genLabelsIn(data, height, width, padding, id) {
        let svg = d3.select(id);
        let h = height;
        let w= width;
@@ -49,26 +49,46 @@ $( function () {
           if (d[1] === 0) return("black");
           return("white")
        });
+     }
 
-       svg.selectAll(".down_bars").data(data).enter().append("text")
-       .text( function (d) {
-          return(d[0]);
-       })
-       .attr("class", "down_bars")
-       .attr("x", function(d, i) {
-          return (i * (w / data.length) + 12)
-       })
-       .attr("y", function (d) {
-          return (h + 30);
-       })
-       .attr("fill", function (d) {
-          return("rgb(242, 101, 14)")
-       })
-       .attr("transform", function(d, i) {
-          let posX = i * (w / data.length) + 15;
-          let posY = h + 35;
-          return ("rotate(-70, " + posX + ", " + posY + ")");
-       });
+     // generate down bar labels
+     function genLabelsDown(data, height, width, padding, id) {
+          let svg = d3.select(id);
+          let h = height;
+          let w= width;
+          let pad = padding;
+
+          svg.selectAll(".down_bars").data(data).enter().append("text")
+          .text( function (d) {
+             return(d[0]);
+          })
+          .attr("class", "down_bars")
+          .attr("x", function(d, i) {
+             return (i * (w / data.length) + 12)
+          })
+          .attr("y", function (d) {
+             return (h + 30);
+          })
+          .attr("fill", function (d) {
+             return("rgb(242, 101, 14)")
+          })
+          .attr("transform", function(d, i) {
+             let posX = i * (w / data.length) + 15;
+             let posY = h + 35;
+             return ("rotate(-70, " + posX + ", " + posY + ")");
+          });
+
+          let d = ["Title"]
+          svg.selectAll(".barTitle").data(d).enter().append("text")
+          .text(function (d) {
+               return ("percentage no. of good roads")
+          })
+          .attr("class", "barTitle")
+          .attr("x", 130)
+          .attr("y", h + 80)
+          .attr("style", "font: italic 20pt serif")
+          .attr("fill", "blue")
+          
      }
 
      // load and extract good roads data for rendering
@@ -89,7 +109,8 @@ $( function () {
             goodReg[1] = (count / countrds) * 100;
             good_roads.push(goodReg);
         }
-        barsGen(good_roads, 300, 500, 2, "svg#good_rds");
-        genLabels(good_roads, 300, 500, 2, "svg#good_rds")
+        barsGen(good_roads, 300, 470, 2, "svg#good_rds");
+        genLabelsIn(good_roads, 300, 470, 2, "svg#good_rds");
+        genLabelsDown(good_roads, 300, 470, 2, "svg#good_rds");
     })
 })
