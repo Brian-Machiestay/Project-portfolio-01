@@ -40,6 +40,7 @@ main {
     min-height: 100vh;
     padding: 0;
     padding-left: 2px;
+    display: flex;
 }
 
 /* .options aside of main */
