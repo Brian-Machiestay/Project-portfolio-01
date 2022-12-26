@@ -1,9 +1,7 @@
 
 $( function () {
      // generate bars
-     function barsGen(data, height, width, padding, id) {
-          
-       console.log(data);
+     function barsGen(data, height, width, padding, id, scale) {
        let svg = d3.select(id);
        let h = height;
        let w= width;
@@ -13,23 +11,23 @@ $( function () {
             return (i * (w / data.length))
        })
        .attr("y", function (d) {
-            return (h - d[1] * 15);
+            return (h - d[1] * scale);
        })
        .attr("width", function (d, i) {
             return (w / data.length - pad)
        })
        .attr("height", function (d) {
-            return (d[1] * 15);
+            return (d[1] * scale);
        })
        .attr("fill", function (d) {
-          return ("rgb(0, 0," + Math.round(d[1] * 10) + ")");
+          return ("rgb(0, 0," + Math.round(d[1] * scale) + ")");
        })
 
        
      }
 
      // generate in-bars labels
-     function genLabelsIn(data, height, width, padding, id, extra) {
+     function genLabelsIn(data, height, width, padding, id, extra, scale) {
        let svg = d3.select(id);
        let h = height;
        let w= width;
@@ -42,11 +40,11 @@ $( function () {
        })
        .attr("class", "in_bars")
        .attr("x", function(d, i) {
-          return (i * (w / data.length) + 12)
+          return (i * (w / data.length) + scale + 5)
        })
        .attr("y", function (d) {
-          if (d[1] === 0) return (h - d[1] * 15);
-          return (h - d[1] * 15 + 15);
+          if (d[1] === 0) return (h - d[1] * scale);
+          return (h - d[1] * scale + 17);
        })
        .attr("fill", function (d) {
           if (d[1] === 0) return("black");
@@ -97,24 +95,43 @@ $( function () {
      // load and extract good roads data for rendering
      $.get("../js/Road-condition.json", function (data) {
           let good_roads = [];
-          let regions = ["NOR","EAR","GAR","CER","BAR","ASR","WER","VOR","UER","UPW"]
+          let roads_no_percent = [];
+          let regions = ["NOR","EAR","GAR","CER","BAR","ASR","WER","VOR","UER","UWR"]
           for (let j = 0; j < regions.length; j++) {
                let goodReg = [];
                let count = 0;
                let countrds = 0;   
                for(let i = 0; i < data.length; i++) {
-                         if (data[i]['Cond.'] === "Good"){
+                    if (data[i]['Region'] === regions[j]){
+                         countrds++;
+                         if (data[i]["Cond."] === "Good") count++;
+                    }
+               }
+               goodReg[0] = regions[j];
+               goodReg[1] = (count / countrds) * 100;
+               good_roads.push(goodReg);  
+          }
+
+          for (let j = 0; j < regions.length; j++) {
+               let goodReg = [];
+               let count = 0;
+               let countrds = 0;   
+               for(let i = 0; i < data.length; i++) {
+                    if (data[i]['Cond.'] === "Good"){
                          countrds++;
                          if (data[i]["Region"] === regions[j]) count++;
-                         }
+                    }
                }
                goodReg[0] = regions[j];
                goodReg[1] = count;
-               goodReg[1] = (count / countrds) * 100;
-               good_roads.push(goodReg);
+               roads_no_percent.push(goodReg);  
           }
-          barsGen(good_roads, 300, 470, 2, "svg#good_rds");
-          genLabelsIn(good_roads, 300, 470, 2, "svg#good_rds", "%");
+
+          barsGen(roads_no_percent, 300, 470, 2, "svg", 2);
+          genLabelsIn(roads_no_percent, 300, 470, 2, "svg", null, 2);
+          genLabelsDown(roads_no_percent, 300, 470, 2, "svg");
+          barsGen(good_roads, 300, 470, 2, "svg#good_rds", 5);
+          genLabelsIn(good_roads, 300, 470, 2, "svg#good_rds", "%", 5);
           genLabelsDown(good_roads, 300, 470, 2, "svg#good_rds");
      })
 })
