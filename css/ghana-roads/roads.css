@@ -35,6 +35,12 @@ header {
     margin-left: 10px;
 }
 
+.jombo .nav-link:hover {
+    background-color: white;
+    color: var(--red);
+    margin-left: 10px;
+}
+
 /* main styles */
 main {
     min-height: 100vh;
@@ -81,6 +87,6 @@ main {
 }
 a:hover {
     text-decoration: none;
-    color:blueviolet;
+    color: blueviolet;
     text-decoration: none;
 }

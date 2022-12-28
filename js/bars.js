@@ -77,22 +77,27 @@ $( function () {
              let posX = i * (w / data.length) + 15;
              let posY = h + 35;
              return ("rotate(-70, " + posX + ", " + posY + ")");
-          });
-
-          let d = ["Title"]
-          svg.selectAll(".barTitle").data(d).enter().append("text")
-          .text(function (d) {
-               return ("percentage no. of good roads")
-          })
-          .attr("class", "barTitle")
-          .attr("x", 130)
-          .attr("y", h + 80)
-          .attr("style", "font: italic 20pt serif")
-          .attr("fill", "blue")
-          
+          }); 
      }
 
-     // load and extract good roads data for rendering
+
+     // generate tile for a bar
+     function genTitle(x, y, id, title) {
+          let svg = d3.select(id);
+          let d = [title];
+          svg.selectAll(".barTitle").data(d).enter().append("text")
+          .text(function (d) {
+               return (title);
+          })
+          .attr("class", "barTitle")
+          .attr("x", x)
+          .attr("y", y)
+          .attr("style", "font: italic 20pt serif")
+          .attr("fill", "blue")
+
+     }
+
+     // load and extract good roads data with percentages for rendering
      $.get("../js/Road-condition.json", function (data) {
           let good_roads = [];
           let roads_no_percent = [];
@@ -112,6 +117,7 @@ $( function () {
                good_roads.push(goodReg);  
           }
 
+          // extract good roads data without percentages for rendering
           for (let j = 0; j < regions.length; j++) {
                let goodReg = [];
                let count = 0;
@@ -127,11 +133,13 @@ $( function () {
                roads_no_percent.push(goodReg);  
           }
 
-          barsGen(roads_no_percent, 300, 470, 2, "svg", 2);
-          genLabelsIn(roads_no_percent, 300, 470, 2, "svg", null, 2);
-          genLabelsDown(roads_no_percent, 300, 470, 2, "svg");
+          barsGen(roads_no_percent, 300, 470, 2, "svg#no_cent", 2);
+          genLabelsIn(roads_no_percent, 300, 470, 2, "svg#no_cent", null, 2);
+          genLabelsDown(roads_no_percent, 300, 470, 2, "svg#no_cent");
+          genTitle(130, 380, "svg#no_cent", "No. of good roads");
           barsGen(good_roads, 300, 470, 2, "svg#good_rds", 5);
           genLabelsIn(good_roads, 300, 470, 2, "svg#good_rds", "%", 5);
           genLabelsDown(good_roads, 300, 470, 2, "svg#good_rds");
+          genTitle(130, 380,"svg#good_rds", "percentage no. of good roads");
      })
 })
