@@ -2,10 +2,10 @@
 $( function () {
      // generate bars
      function barsGen(data, height, width, padding, id, scale) {
-       let svg = d3.select(id);
-       let h = height;
-       let w= width;
-       let pad = padding;
+       const svg = d3.select(id);
+       const h = height;
+       const w= width;
+       const pad = padding;
        svg.selectAll("rect").data(data).enter().append("rect")
        .attr("x", function(d, i) {
             return (i * (w / data.length))
@@ -28,10 +28,10 @@ $( function () {
 
      // generate in-bars labels
      function genLabelsIn(data, height, width, padding, id, extra, scale) {
-       let svg = d3.select(id);
-       let h = height;
-       let w= width;
-       let pad = padding;
+       const svg = d3.select(id);
+       const h = height;
+       const w= width;
+       const pad = padding;
        
        svg.selectAll(".in_bars").data(data).enter().append("text")
        .text( function (d) {
@@ -54,10 +54,10 @@ $( function () {
 
      // generate down bar labels
      function genLabelsDown(data, height, width, padding, id) {
-          let svg = d3.select(id);
-          let h = height;
-          let w= width;
-          let pad = padding;
+          const svg = d3.select(id);
+          const h = height;
+          const w= width;
+          const pad = padding;
 
           svg.selectAll(".down_bars").data(data).enter().append("text")
           .text( function (d) {
@@ -74,8 +74,8 @@ $( function () {
              return("rgb(242, 101, 14)")
           })
           .attr("transform", function(d, i) {
-             let posX = i * (w / data.length) + 15;
-             let posY = h + 35;
+             const posX = i * (w / data.length) + 15;
+             const posY = h + 35;
              return ("rotate(-70, " + posX + ", " + posY + ")");
           }); 
      }
@@ -83,8 +83,8 @@ $( function () {
 
      // generate tile for a bar
      function genTitle(x, y, id, title) {
-          let svg = d3.select(id);
-          let d = [title];
+          const svg = d3.select(id);
+          const d = [title];
           svg.selectAll(".barTitle").data(d).enter().append("text")
           .text(function (d) {
                return (title);
@@ -120,11 +120,9 @@ $( function () {
           // extract good roads data without percentages for rendering
           for (let j = 0; j < regions.length; j++) {
                let goodReg = [];
-               let count = 0;
-               let countrds = 0;   
+               let count = 0; 
                for(let i = 0; i < data.length; i++) {
                     if (data[i]['Cond.'] === "Good"){
-                         countrds++;
                          if (data[i]["Region"] === regions[j]) count++;
                     }
                }
@@ -141,5 +139,41 @@ $( function () {
           genLabelsIn(good_roads, 300, 470, 2, "svg#good_rds", "%", 5);
           genLabelsDown(good_roads, 300, 470, 2, "svg#good_rds");
           genTitle(130, 380,"svg#good_rds", "percentage no. of good roads");
+     })
+
+     // load and extract poor roads data with percentages for rendering
+     $.get("../js/Road-condition.json", function (data) {
+          console.log(data);
+          let good_roads = [];
+          let roads_no_percent = [];
+          let regions = ["NOR","EAR","GAR","CER","BAR","ASR","WER","VOR","UER","UWR"];
+          for (let j = 0; j < regions.length; j++) {
+               let goodReg = [];
+               let count = 0;
+               let countrds = 0;   
+               for(let i = 0; i < data.length; i++) {
+                    if (data[i]['Region'] === regions[j]){
+                         countrds++;
+                         if (data[i]["Cond."] === "Poor") count++;
+                    }
+               }
+               goodReg[0] = regions[j];
+               goodReg[1] = (count / countrds) * 100;
+               good_roads.push(goodReg);  
+          }
+
+          // extract good roads data without percentages for rendering
+          for (let j = 0; j < regions.length; j++) {
+               let goodReg = [];
+               let count = 0; 
+               for(let i = 0; i < data.length; i++) {
+                    if (data[i]['Cond.'] === "Good"){
+                         if (data[i]["Region"] === regions[j]) count++;
+                    }
+               }
+               goodReg[0] = regions[j];
+               goodReg[1] = count;
+               roads_no_percent.push(goodReg);  
+          }
      })
 })
