@@ -1,0 +1,19 @@
+#good_roads {
+    width: 75%;
+}
+
+#good_roads h1 {
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 22pt;
+    border-radius: 3px;
+    color: var(--red);
+    font-family: 'Times New Roman', Times, serif;
+    background-color: rgb(236, 229, 229);
+}
+
+.only_bars {
+    display: flex;
+}
