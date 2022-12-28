@@ -24,12 +24,19 @@ header {
     height: 8vh;
     padding-top: 8px;
     position: sticky;
+    z-index: 1;
     top: 0;
 }
 .jombo .nav-fill .nav-link {
     color: white;
 }
 .jombo .nav-fill .active {
+    background-color: white;
+    color: var(--red);
+    margin-left: 10px;
+}
+
+.jombo .nav-link:hover {
     background-color: white;
     color: var(--red);
     margin-left: 10px;
@@ -81,6 +88,6 @@ main {
 }
 a:hover {
     text-decoration: none;
-    color:blueviolet;
+    color: blueviolet;
     text-decoration: none;
 }
