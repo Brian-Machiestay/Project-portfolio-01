@@ -24,6 +24,7 @@ header {
     height: 8vh;
     padding-top: 8px;
     position: sticky;
+    z-index: 1;
     top: 0;
 }
 .jombo .nav-fill .nav-link {

@@ -6,13 +6,15 @@
     width: 75%;
 }
 
-#good_roads h1, #poor_roads h1 {
+#good_roads h1, #poor_roads h1, #fair_roads h1 {
     width: 100%;
     margin-top: 20px;
     margin-bottom: 20px;
     text-align: center;
     font-size: 22pt;
     border-radius: 3px;
+    position: sticky;
+    top: 50px;
     color: black;
     font-family: 'Times New Roman', Times, serif;
     background-color: rgb(236, 229, 229);
