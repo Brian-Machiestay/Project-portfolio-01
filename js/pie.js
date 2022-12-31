@@ -90,15 +90,15 @@ $(function () {
         });
     }
 
-    // generate tile for a bar
+    // generate tile for a pie chart
     function genTitle(x, y, id, title) {
         const svg = d3.select(id);
         const d = [title];
-        svg.selectAll(".barTitle").data(d).enter().append("text")
+        svg.selectAll(".pieTitle").data(d).enter().append("text")
         .text(function (d) {
              return (title);
         })
-        .attr("class", "barTitle")
+        .attr("class", "pieTitle")
         .attr("x", x)
         .attr("y", y)
         .attr("style", "font: italic 20pt serif")
