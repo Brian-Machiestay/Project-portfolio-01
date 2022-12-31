@@ -1,27 +1,13 @@
 $(function () {
 
     // generate pie chart
-    function pieGen(data, height, width, padding, id, scale) {
-        const svg = d3.select(id);
-        const h = height;
-        const w= width;
-        const pad = padding;
-        svg.selectAll("rect").data(data).enter().append("rect")
-        .attr("x", function(d, i) {
-             return (i * (w / data.length))
-        })
-        .attr("y", function (d) {
-             return (h - d[1] * scale);
-        })
-        .attr("width", function (d, i) {
-             return (w / data.length - pad)
-        })
-        .attr("height", function (d) {
-             return (d[1] * scale);
-        })
-        .attr("fill", function (d) {
-           return ("rgb(0, 0," + Math.round(d[1] * scale) + ")");
-        })      
+    function piedataset(data) {
+        let dat = pie(data);
+        for (let i = 0; i < data.length; i++) {
+            for (let j = 0; j < dat.length; j++) {
+                if (data[i][1] === dat[j].value) dat[j]['text'] = data[i][0];
+            }
+        }
     }
 
     $.get("../js/Road-condition.json", function (data) {
@@ -39,9 +25,65 @@ $(function () {
                 }
             }
             goodReg[0] = regions[j];
-            goodReg[1] = (count / countrds) * 100;
+            goodReg[1] = count;
             good_roads.push(goodReg);  
         }
+        let color = d3.scaleOrdinal(d3.schemeCategory10);
+        let dataset = [];
+        for (let i = 0; i < good_roads.length; i++) {
+            dataset.push(good_roads[i][1]);
+        }
+        let pie = d3.pie();
+        let w = 490;
+        let h = 350;
+        let out = w/4;
+        let inner = 0;
+        let arc = d3.arc().innerRadius(inner)
+        .outerRadius(out);
+        let svg = d3.select("svg#good_no_cent");
+        let dat = pie(dataset);
+        for (let i = 0; i < good_roads.length; i++) {
+            for (let j = 0; j < dat.length; j++) {
+                if (good_roads[i][1] === dat[j].value) dat[j]['text'] = good_roads[i][0];
+            }
+        }
+        console.log(dat);
+        console.log(good_roads);
+        
+        let arcs = svg.selectAll("g.arc")
+        .data(dat)
+        .enter()
+        .append("g")
+        .attr("class", "arc")
+        .attr("transform", "translate(" + 250 + ", " + 200 + ")");
+        arcs.append("path")
+        .attr("fill", function(d, i) {
+        return(color(i));
+        })
+        .attr("d", arc);
+        arcs.append("text")
+        .attr("class", "val")
+        .attr("transform", function(d) {
+            center = arc.centroid(d);
+            center[0]  = center[0] *2.4 + 7;
+            center[1]  = center[1] * 2.4;
+            
+        return "translate(" + center + ")";
+        })
+        .attr("text-anchor", "middle")
+        .text(function(d) {
+        return d.text;
+        });
+
+        arcs.append("text").attr("class", "label");
+        arcs.selectAll(".label").text(function (d) { 
+            return d.value;   
+        })
+        .attr("transform", function(d) {
+            center = arc.centroid(d);
+            center[0]  = center[0] * 1.5 - 10;
+            center[1]  = center[1] * 1.5;
+            return ("translate(" + center + ")")
+        });
     })
-    pieGen(good_roads, 300, 470, 2, "svg#good_no_cent", 2);
 })
