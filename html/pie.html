@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <title>DavaVis</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="../css/commons/reset.css">
+  <link rel="stylesheet" href="../css/commons/header.css">
+  <link rel="stylesheet" href="../css/commons/footer.css">
+  <link rel="stylesheet" href="../css/ghana-roads/roads.css">
+  <link rel="stylesheet" href="../css/ghana-roads/bars.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="../js/pie.js"></script>
+</head>
+<body>
+  <!-- the header section -->
+  <header>
+    <a href="../index.html" class="rm_underline"><p id="logo">DataVis</p></a>
+    <nav>
+      <ul>
+        <li><a href="#" class="rm_underline">Pricing</a></li>
+        <li><a href="#" class="rm_underline">Product</a></li>
+        <li><a href="#" class="rm_underline">About Us</a></li>
+        <li><a href="#" class="rm_underline">Careers</a></li>
+        <li><a href="#" class="rm_underline">Community</a></li>
+      </ul>
+    </nav>
+
+    <a href="#" class="rm_underline get_started">Get Started</a>
+  </header>
+  <section class="jombo">
+        <ul class="nav nav-pills nav-fill" id="boot_nav">
+            <li class="nav-item">
+              <a class="nav-link active" href="#">Roads in Ghana</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">The thousands Genome Project</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Drugs related to Medical Conditions</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled" href="#">PC games</a>
+            </li>
+        </ul>
+  </section>
+  <main>
+    <aside class="options">
+        <ul id="chart_options">
+            <li><a href="#" class="rm_underline">bar chart</a></li>
+            <li><a href="#" class="rm_underline">line graph</a></li>
+            <li><a href="#" class="rm_underline">pie chart</a></li>
+            <li><a href="#" class="rm_underline">scatter graph</a></li>
+        </ul>
+    </aside>
+    <aside class="for_bars">
+      <section id="good_roads">
+        <h1>Relative Number of Good Roads in all Regions</h1>
+        <div class="only_bars">
+          <aside>
+            <svg id="good_no_cent" height="400" width="500"></svg>
+          </aside>
+          <aside class="bars">
+            <svg id="good_rds" width="490" height="400"></svg>
+          </aside>
+        </div>
+      </section>
+      <section id="poor_roads">
+        <h1>Relative Number of poor Roads in all Regions</h1>
+        <div class="only_bars">
+          <aside>
+            <svg id="poor_no_cent" height="400" width="500"></svg>
+          </aside>
+          <aside class="bars">
+            <svg id="poor_rds" width="490" height="400"></svg>
+          </aside>
+        </div>
+      </section>
+      <section id="fair_roads">
+        <h1>Relative Number of fair Roads in all Regions</h1>
+        <div class="only_bars">
+          <aside>
+            <svg id="fair_road_no_cent" height="400" width="500"></svg>
+          </aside>
+          <aside class="bars">
+            <svg id="fair_rds" width="490" height="400"></svg>
+          </aside>
+        </div>
+      </section>
+    </aside>
+  </main>
+   <!-- the footer -->
+   <footer id="footer">
+    <div class="iconic_logo">
+      <p>DavaVis</p>
+      <div id="icons">
+        <img src="../images/icon-facebook.svg" alt="facebook"/>
+        <img src="../images/icon-pinterest.svg" alt="pinterest"/>
+        <img src="../images/icon-instagram.svg" alt="instagram"/>
+        <img src="../images/icon-twitter.svg" alt="twitter"/>
+        <img src="../images/icon-youtube.svg" alt="youtube"/>
+      </div>
+    </div>
+    <ul>
+      <li><a href="#" class="rm_underline">Home</a></li>
+      <li><a href="#" class="rm_underline">Pricing</a></li>
+      <li><a href="#" class="rm_underline">Products</a></li>
+    </ul>
+    <ul>
+      <li><a href="#" class="rm_underline">About Us</a></li>
+      <li><a href="#" class="rm_underline">Careers</a></li>
+      <li><a href="#" class="rm_underline">Community</a></li>
+      <li><a href="#" class="rm_underline">Privacy Policy</a></li>
+    </ul>
+
+    <div id="go">
+      <div id="updates">
+        <p>Updates in your inbox…</p>
+        <a href="#" class="button rm_underline">Go</a>
+      </div>
+
+      <p>Copyright 2020. All Rights Reserved</p>
+      <p>Coded by <a href="#">Your Name Here</a></p>
+    </div>
+  </footer>
+</body>
+</html>
+
