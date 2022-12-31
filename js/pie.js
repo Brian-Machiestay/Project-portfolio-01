@@ -135,4 +135,49 @@ $(function () {
         regLabel(arcs, arc);
         numLabel(arcs, arc, "%");
     })
+
+     // load and extract poor roads data with percentages for rendering
+     $.get("../js/Road-condition.json", function (data) {
+        let poor_roads = [];
+        let poor_roads_no_percent = [];
+        let regions = ["NOR","EAR","GAR","CER","BAR","ASR","WER","VOR","UER","UWR"];
+        for (let j = 0; j < regions.length; j++) {
+             let poorReg = [];
+             let count = 0;
+             let countrds = 0;   
+             for(let i = 0; i < data.length; i++) {
+                  if (data[i]['Region'] === regions[j]){
+                       countrds++;
+                       if (data[i]["Cond."] === "Poor") count++;
+                  }
+             }
+             poorReg[0] = regions[j];
+             poorReg[1] = (count / countrds) * 100;
+             poor_roads.push(poorReg);
+        }
+
+        // extract poor roads data without percentages for rendering
+        for (let j = 0; j < regions.length; j++) {
+             let goodReg = [];
+             let count = 0; 
+             for(let i = 0; i < data.length; i++) {
+                  if (data[i]['Cond.'] === "Poor"){
+                       if (data[i]["Region"] === regions[j]) count++;
+                  }
+             }
+             goodReg[0] = regions[j];
+             goodReg[1] = count;
+             poor_roads_no_percent.push(goodReg);  
+        }
+        let dt_no_cent = pieDataset(poor_roads_no_percent);
+        let arcs_no_cent = arcGen(490, 350, "svg#poor_no_cent", dt_no_cent);
+        let arc_no_cent = arcPath(490, 350);
+        regLabel(arcs_no_cent, arc_no_cent);
+        numLabel(arcs_no_cent, arc_no_cent, null);
+        let dt = pieDataset(poor_roads);
+        let arcs = arcGen(490, 350, "svg#poor_rds", dt);
+        let arc = arcPath(490, 350);
+        regLabel(arcs, arc);
+        numLabel(arcs, arc, "%");
+    })
 })
