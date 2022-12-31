@@ -1,13 +1,50 @@
 $(function () {
 
-    // generate pie chart
-    function piedataset(data) {
-        let dat = pie(data);
-        for (let i = 0; i < data.length; i++) {
+    // generate arcs for pie chart
+    function arcGen(width, height, id, piedata) {
+        let color = d3.scaleOrdinal(d3.schemeCategory10);
+        let w = width;
+        let h = height;
+        let out = w/4;
+        let inner = 0;
+        let arc = d3.arc().innerRadius(inner)
+        .outerRadius(out);
+        let svg = d3.select(id);
+        let dat = piedata;
+        for (let i = 0; i < good_roads.length; i++) {
             for (let j = 0; j < dat.length; j++) {
-                if (data[i][1] === dat[j].value) dat[j]['text'] = data[i][0];
+                if (good_roads[i][1] === dat[j].value) dat[j]['text'] = good_roads[i][0];
             }
         }
+        let arcs = svg.selectAll("g.arc")
+        .data(dat)
+        .enter()
+        .append("g")
+        .attr("class", "arc")
+        .attr("transform", "translate(" + 250 + ", " + 200 + ")");
+        arcs.append("path")
+        .attr("fill", function(d, i) {
+        return(color(i));
+        })
+        .attr("d", arc);
+        return(arcs);
+    }
+
+    // generate pie chart dataset and add description to to generated data
+    function pieDataset(data) {
+        let pie = d3.pie();
+        let dataset = [];
+        for (let i = 0; i < data.length; i++) {
+            dataset.push(data[i][1]);
+        }
+        
+        let dat = pie(dataset);
+        for (let i = 0; i < dataset.length; i++) {
+            for (let j = 0; j < dat.length; j++) {
+                if (dataset[i][1] === dat[j].value) dat[j]['text'] = dataset[i][0];
+            }
+        }
+        return(dat);
     }
 
     $.get("../js/Road-condition.json", function (data) {
@@ -28,39 +65,9 @@ $(function () {
             goodReg[1] = count;
             good_roads.push(goodReg);  
         }
-        let color = d3.scaleOrdinal(d3.schemeCategory10);
-        let dataset = [];
-        for (let i = 0; i < good_roads.length; i++) {
-            dataset.push(good_roads[i][1]);
-        }
-        let pie = d3.pie();
-        let w = 490;
-        let h = 350;
-        let out = w/4;
-        let inner = 0;
-        let arc = d3.arc().innerRadius(inner)
-        .outerRadius(out);
-        let svg = d3.select("svg#good_no_cent");
-        let dat = pie(dataset);
-        for (let i = 0; i < good_roads.length; i++) {
-            for (let j = 0; j < dat.length; j++) {
-                if (good_roads[i][1] === dat[j].value) dat[j]['text'] = good_roads[i][0];
-            }
-        }
-        console.log(dat);
-        console.log(good_roads);
-        
-        let arcs = svg.selectAll("g.arc")
-        .data(dat)
-        .enter()
-        .append("g")
-        .attr("class", "arc")
-        .attr("transform", "translate(" + 250 + ", " + 200 + ")");
-        arcs.append("path")
-        .attr("fill", function(d, i) {
-        return(color(i));
-        })
-        .attr("d", arc);
+        let dt = pieDataset(good_roads);
+        let arcs = arcGen(490, 350, "svg#good_no_cent", dt);
+       
         arcs.append("text")
         .attr("class", "val")
         .attr("transform", function(d) {
