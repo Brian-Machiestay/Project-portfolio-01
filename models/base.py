@@ -1,12 +1,13 @@
 #!/bin/env python3
 """ the basemodel where all other models inherit from"""
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import String, Numeric, Column
+from sqlalchemy import String, Numeric, Column
 import models
+import uuid
 
 Base = declarative_base()
 
-class BaseMod():
+class baseMod():
     """ the base class for all classes"""
     id = Column(String(60), primary_key=True)
     region = Column(String(128), nullable=False)
@@ -24,11 +25,12 @@ class BaseMod():
     iri = Column(Numeric)
     condition = Column(String(128), nullable=False)
 
-    def __init__(self, **kwargs):
+    def __init__(self,*args, **kwargs):
         """initializes a basemodel class"""
         if kwargs:
-            for key, val in kwargs.items:
-                self.setattr(key, val)
+            self.id = uuid.uuid4()
+            for key, val in kwargs.items():
+                setattr(self, key, val)
         else:
             print("no attributes provided")
             return
@@ -41,5 +43,5 @@ class BaseMod():
 
     def save(self):
         """saves obj to the database"""
-        models.new(self)
+        models.storage.new(self)
         models.storage.save()

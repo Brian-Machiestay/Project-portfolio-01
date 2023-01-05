@@ -2,7 +2,7 @@
 """this class defines a fair road object"""
 from models.base import Base, baseMod
 
-class fairRoad(BaseMod, Base):
+class fairRoad(baseMod, Base):
     """defines the fair road class"""
     __tablename__ = 'fairRoad'
 

@@ -5,7 +5,7 @@ Defines the dababase storage engine
 
 from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session, sessionmaker
-
+from models.base import Base
 
 
 class DBstore:
@@ -20,9 +20,9 @@ class DBstore:
 
     def reload(self):
         """rejuvenates a session for transactions"""
-        Base.metadata.create_all(self.engine)
-        sessObj = sessonmaker(bind=self.__engine, expire_on_commit=False)
-        Session = scoped_session(ssObj)
+        Base.metadata.create_all(self.__engine)
+        sessObj = sessionmaker(bind=self.__engine, expire_on_commit=False)
+        Session = scoped_session(sessObj)
         self.__session = Session
 
     def new(self, obj):
