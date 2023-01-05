@@ -1,6 +1,8 @@
 #!/bin/env python3
 """ the basemodel where all other models inherit from"""
 from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import String, Numeric, Column
+import models
 
 Base = declarative_base()
 
@@ -27,3 +29,17 @@ class BaseMod():
         if kwargs:
             for key, val in kwargs.items:
                 self.setattr(key, val)
+        else:
+            print("no attributes provided")
+            return
+
+
+    def to_dict(self):
+        """return a dictionary representation of this object"""
+        newObj = self.__dict__.copy()
+        return newObj
+
+    def save(self):
+        """saves obj to the database"""
+        models.new(self)
+        models.storage.save()

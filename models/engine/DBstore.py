@@ -5,11 +5,8 @@ Defines the dababase storage engine
 
 from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session, sessionmaker
-from models.goodRoad import goodRoad
-from models.fairRoad import fairRoad
-from models.poorRoad import poorRoad
 
-classes = [goodRoad, fairRoad, poorRoad]
+
 
 class DBstore:
     """ the database storage class"""
