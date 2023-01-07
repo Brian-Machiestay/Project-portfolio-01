@@ -40,3 +40,9 @@ class DBstore:
     def close(self):
         """closes the current session"""
         self.__session.remove()
+
+
+    def all(self, cls):
+        """returns all data of a specific class"""
+        allObj = self.__session.query(cls).all()
+        return(allObj)

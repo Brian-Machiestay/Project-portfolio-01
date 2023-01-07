@@ -15,3 +15,13 @@ cors = CORS(app, resources={r"api/v1/*": {"origins": "*"}})
 def db_close(error):
     """return session to pool"""
     storage.close()
+
+
+@app.errorhandler(404)
+def notFound(error):
+    """custom 404 message if api endpoint does not exist"""
+    return(make_response(jsonify({'error': 'Not Found'})), 404)
+
+
+if "__name__" == "__main__":
+    app.run(host='0.0.0.0', threaded=True)
