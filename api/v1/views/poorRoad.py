@@ -2,16 +2,16 @@
 """defines a view function for good roads"""
 from flask import jsonify
 from api.v1.views import app_views
-from models.goodRoad import goodRoad
+from models.poorRoad import poorRoad
 from models import storage
 import sqlalchemy
 
 
-@app_views.route('/allGoodRoads')
-def all_good_roads():
+@app_views.route('/allPoorRoads')
+def all_poor_roads():
     """returns a all good roads data"""
     objs = []
-    good_roads_objs = storage.all(goodRoad)
-    for ob in good_roads_objs:
+    poor_roads_objs = storage.all(poorRoad)
+    for ob in poor_roads_objs:
         objs.append(ob.to_dict())
     return(jsonify(objs))
