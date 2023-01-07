@@ -5,11 +5,12 @@ from sqlalchemy import String, Numeric, Column
 import models
 import uuid
 
+
 Base = declarative_base()
 
 class baseMod():
     """ the base class for all classes"""
-    id = Column(String(60), primary_key=True)
+    id = Column(String(128), nullable=False, primary_key=True)
     region = Column(String(128), nullable=False)
     road_num = Column(String(128), nullable=False)
     road_name = Column(String(128), nullable=False)
@@ -28,7 +29,7 @@ class baseMod():
     def __init__(self,*args, **kwargs):
         """initializes a basemodel class"""
         if kwargs:
-            self.id = uuid.uuid4()
+            self.id = str(uuid.uuid4())
             for key, val in kwargs.items():
                 setattr(self, key, val)
         else:
@@ -45,3 +46,7 @@ class baseMod():
         """saves obj to the database"""
         models.storage.new(self)
         models.storage.save()
+
+    def close(self):
+        """drops the current session"""
+        models.storage.close()

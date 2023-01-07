@@ -28,4 +28,5 @@ for item in data:
         dt['condition'] = item['Cond.']
         dt = goodRoad(**dt)
         dt.save()
+        dt.close()
         print(dt.to_dict())

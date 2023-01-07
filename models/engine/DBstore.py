@@ -6,6 +6,10 @@ Defines the dababase storage engine
 from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session, sessionmaker
 from models.base import Base
+from models.goodRoad import goodRoad
+from models.poorRoad import poorRoad
+from models.fairRoad import fairRoad
+import sqlalchemy
 
 
 class DBstore:
@@ -32,3 +36,7 @@ class DBstore:
     def save(self):
         """commit all new objs and changes to the database"""
         self.__session.commit()
+
+    def close(self):
+        """closes the current session"""
+        self.__session.remove()
