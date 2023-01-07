@@ -40,6 +40,7 @@ class baseMod():
     def to_dict(self):
         """return a dictionary representation of this object"""
         newObj = self.__dict__.copy()
+        del(newObj['_sa_instance_state'])
         return newObj
 
     def save(self):
