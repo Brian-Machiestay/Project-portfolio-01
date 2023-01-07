@@ -34,7 +34,7 @@ class baseMod():
                 setattr(self, key, val)
         else:
             print("no attributes provided")
-            return
+            return()
 
 
     def to_dict(self):
