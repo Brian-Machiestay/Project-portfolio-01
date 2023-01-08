@@ -1,0 +1,29 @@
+.for_bars section {
+    margin-bottom: 100px;
+}
+
+#good_roads {
+    width: 75%;
+}
+
+#good_roads h1, #poor_roads h1, #fair_roads h1 {
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 22pt;
+    border-radius: 3px;
+    position: sticky;
+    top: 50px;
+    color: black;
+    font-family: 'Times New Roman', Times, serif;
+    background-color: rgb(236, 229, 229);
+}
+
+.only_bars {
+    display: flex;
+}
+
+.for_bars svg:hover {
+    background-color: rgb(251, 248, 248);
+}
