@@ -1,69 +1,76 @@
 #!/usr/bin/python3
-"""this module populates the database with the road json data"""
+"""this module tests the created clases, basemod, fairRoad and poorRoad"""
 
-import sqlalchemy
-from sqlalchemy import Column, String, Numeric
-from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
-from sys import argv
-import json
-import uuid
+class databaseNotFoundException(Exception):
+    """creates a database does not exist exception"""
+    pass
 
-Base = declarative_base()
-engine = create_engine('mysql+mysqldb://engineer:\
-development@localhost/ghana_roads')
 
-class Road(Base):
-    """Defines a road unit"""
-    __tablename__ = "Road"
-    id = Column(String(60), primary_key=True)
-    region = Column(String(128), nullable=False)
-    road_num = Column(String(128), nullable=False)
-    road_name = Column(String(128), nullable=False)
-    link_ref = Column(String(128), nullable=False)
-    section_ref = Column(String(128), nullable=False)
-    road_begin = Column(String(128), nullable=False)
-    road_end = Column(String(128), nullable=False)
-    start_point = Column(Numeric, nullable=False)
-    distance = Column(Numeric, nullable=False)
-    width = Column(Numeric, nullable=False)
-    surf_type = Column(String(128), nullable=False)
-    condition_score = Column(String(128), nullable=False)
-    iri = Column(Numeric)
-    condition = Column(String(128), nullable=False)
+try:
+    try:
+        from models.goodRoad import goodRoad
+        from models.poorRoad import poorRoad
+        from models.fairRoad import fairRoad
+        from models.noCondRoad import noCondRoad
 
-    def __init__(self, **kwargs):
-        """initializes the road class"""
-        self.id = uuid.uuid4()
-        self.region = kwargs['Region']
-        self.road_num = kwargs['Road No.']
-        self.road_name = kwargs['RoadName']
-        self.link_ref = kwargs['Link Ref.']
-        self.section_ref = kwargs['Sect. Ref.']
-        self.road_begin = kwargs['From']
-        self.road_end = kwargs['To']
-        self.start_point = kwargs['Start (km)']
-        self.distance = kwargs['Length (km)']
-        self.width = kwargs['Wdth (m)']
-        self.surf_type = kwargs['Surf. Type']
-        self.condition_score = kwargs['Cond.\nScore']
-        self.iri = kwargs['IRI']
-        self.condition = kwargs['Cond.']
 
-if __name__ == '__main__':
-    engine = create_engine('mysql+mysqldb://engineer:\
-development@localhost/ghana_roads')
-    Base.metadata.create_all(engine)
-    Session = sessionmaker(bind=engine)
-    session = Session()
+        import json
 
-    with open(argv[1], 'r', encoding='utf8') as f:
-        data = json.loads(f.read())
-        for info in data:
-            print(info)
-            session.add(Road(**info))
 
-    session.commit()
+        data = ''
+        with open('Road-condition.json', "r", encoding='utf8') as f:
+            data = json.loads(f.read())
 
-    session.close()
+        ncount = 0
+        gcount = 0
+        pcount = 0
+        fcount = 0
+        for item in data:
+            dt = dict()
+            dt['region'] = item['Region']
+            dt['road_num'] = item['Road No.']
+            dt['road_name'] = item['RoadName']
+            dt['link_ref'] = item['Link Ref.']
+            dt['section_ref'] = item['Sect. Ref.']
+            dt['road_begin'] = item['From']
+            dt['road_end'] = item['To']
+            dt['start_point'] = item['Start (km)']
+            dt['distance'] = item['Length (km)']
+            dt['width'] = item['Wdth (m)']
+            dt['surf_type'] = item['Surf. Type']
+            dt['condition_score'] = item['Cond.\nScore']
+            dt['iri'] = item['IRI']
+            dt['condition'] = item['Cond.']
+
+            if dt['condition'] == "Good":
+                if gcount == 0:
+                    print("populating good roads data...")
+                    gcount += 1
+                dt = goodRoad(**dt)
+            elif dt['condition'] == "Poor":
+                if pcount == 0:
+                    print("populating poor roads data...")
+                    pcount += 1
+                dt = poorRoad(**dt)
+            elif dt['condition'] == "Fair":
+                if fcount == 0:
+                    print("populating fair roads data...")
+                    fcount += 1
+                dt = fairRoad(**dt)
+            else:
+                if ncount == 0:
+                    print("populating no condition road data...")
+                    ncount += 1
+                dt = noCondRoad(**dt)
+            dt.save()
+        print("applying final finishes...")
+        dt.close()
+        print("Done!!!")
+
+    except(Exception):
+        raise databaseNotFoundException
+except databaseNotFoundException:
+    print("...There was an error trying to load the data\n\
+...make sure ghana_roads database is created and you have mysql running\n\
+...install mysql and run the sql script in this folder with the command\n\
+'cat database_setup.sql | sudo mysql'")
