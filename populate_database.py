@@ -11,6 +11,7 @@ try:
         from models.goodRoad import goodRoad
         from models.poorRoad import poorRoad
         from models.fairRoad import fairRoad
+        from models.noCondRoad import noCondRoad
 
 
         import json
@@ -20,6 +21,7 @@ try:
         with open('Road-condition.json', "r", encoding='utf8') as f:
             data = json.loads(f.read())
 
+        ncount = 0
         gcount = 0
         pcount = 0
         fcount = 0
@@ -56,7 +58,10 @@ try:
                     fcount += 1
                 dt = fairRoad(**dt)
             else:
-                continue
+                if ncount == 0:
+                    print("populating no condition road data...")
+                    ncount += 1
+                dt = noCondRoad(**dt)
             dt.save()
         print("applying final finishes...")
         dt.close()

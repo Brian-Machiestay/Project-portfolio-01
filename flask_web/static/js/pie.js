@@ -106,7 +106,8 @@ $(function () {
 
    }
 
-    $.get("../../static/js/Road-condition.json", function (data) {
+    $.get("http://192.168.33.10:5002/api/v1/allGoodRoads", function (data) {
+	$.get("http://192.168.33.10:5002/api/v1/stats", function (dat) {
         let good_roads = [];
         let roads_no_percent = [];
         let regions = ["NOR","EAR","GAR","CER","BAR","ASR","WER","VOR","UER","UWR"]
@@ -115,10 +116,7 @@ $(function () {
             let count = 0;
             let countrds = 0;
             for(let i = 0; i < data.length; i++) {
-                if (data[i]['Region'] === regions[j]){
-                    countrds++;
-                    if (data[i]["Cond."] === "Good") count++;
-                }
+                    if (data[i]['region'] === regions[j]) count++;
             }
             goodReg[0] = regions[j];
             goodReg[1] = count;
@@ -131,12 +129,12 @@ $(function () {
             let count = 0;
             let countrds = 0;
             for(let i = 0; i < data.length; i++) {
-                 if (data[i]['Region'] === regions[j]){
-                      countrds++;
-                      if (data[i]["Cond."] === "Good") count++;
+                 if (data[i]['region'] === regions[j]){
+                      count++;
                  }
             }
             goodReg[0] = regions[j];
+	    countrds = dat[regions[j]]
             goodReg[1] = (count / countrds) * 100;
             good_roads.push(goodReg);
         }
@@ -152,10 +150,12 @@ $(function () {
         regLabel(arcs, arc);
         numLabel(arcs, arc, "%");
         genTitle(130, 380,"svg#good_rds", "percentage no. of good roads");
+      })
     })
 
      // load and extract poor roads data with percentages for rendering
-     $.get("../../static/js/Road-condition.json", function (data) {
+    $.get("http://192.168.33.10:5002/api/v1/allPoorRoads", function (data) {
+	$.get("http://192.168.33.10:5002/api/v1/stats", function (dat) {
         let poor_roads = [];
         let poor_roads_no_percent = [];
         let regions = ["NOR","EAR","GAR","CER","BAR","ASR","WER","VOR","UER","UWR"];
@@ -164,12 +164,12 @@ $(function () {
              let count = 0;
              let countrds = 0;
              for(let i = 0; i < data.length; i++) {
-                  if (data[i]['Region'] === regions[j]){
-                       countrds++;
-                       if (data[i]["Cond."] === "Poor") count++;
+                  if (data[i]['region'] === regions[j]){
+                       count++;
                   }
              }
              poorReg[0] = regions[j];
+	     countrds = dat[regions[j]];
              poorReg[1] = (count / countrds) * 100;
              poor_roads.push(poorReg);
         }
@@ -179,9 +179,7 @@ $(function () {
              let goodReg = [];
              let count = 0;
              for(let i = 0; i < data.length; i++) {
-                  if (data[i]['Cond.'] === "Poor"){
-                       if (data[i]["Region"] === regions[j]) count++;
-                  }
+                 if (data[i]["region"] === regions[j]) count++;
              }
              goodReg[0] = regions[j];
              goodReg[1] = count;
@@ -199,9 +197,11 @@ $(function () {
         regLabel(arcs, arc);
         numLabel(arcs, arc, "%");
         genTitle(130, 380,"svg#poor_rds", "percentage no. of poor roads");
+      })
     })
     // load and extract fair roads data with percentages for rendering
-    $.get("../../static/js/Road-condition.json", function (data) {
+    $.get("http://192.168.33.10:5001/api/v1/allFairRoads", function (data) {
+	$.get("http://192.168.33.10:5002/api/v1/stats", function (dat) {
         let fair_roads = [];
         let fair_roads_no_percent = [];
         let regions = ["NOR","EAR","GAR","CER","BAR","ASR","WER","VOR","UER","UWR"];
@@ -210,12 +210,12 @@ $(function () {
              let count = 0;
              let countrds = 0;
              for(let i = 0; i < data.length; i++) {
-                  if (data[i]['Region'] === regions[j]){
-                       countrds++;
-                       if (data[i]["Cond."] === "Fair") count++;
+                  if (data[i]['region'] === regions[j]){
+                       count++;
                   }
              }
              fairReg[0] = regions[j];
+	    countrds = dat[regions[j]];
              fairReg[1] = (count / countrds) * 100;
              fair_roads.push(fairReg);
         }
@@ -225,9 +225,7 @@ $(function () {
              let fairReg = [];
              let count = 0;
              for(let i = 0; i < data.length; i++) {
-                  if (data[i]['Cond.'] === "Fair"){
-                       if (data[i]["Region"] === regions[j]) count++;
-                  }
+                      if (data[i]["region"] === regions[j]) count++;
              }
              fairReg[0] = regions[j];
              fairReg[1] = count;
@@ -245,5 +243,6 @@ $(function () {
         regLabel(arcs, arc);
         numLabel(arcs, arc, "%");
         genTitle(130, 380,"svg#fair_rds", "percentage number of fair roads");
+      })
     })
 })

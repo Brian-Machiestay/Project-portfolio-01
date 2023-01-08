@@ -9,6 +9,7 @@ from models.base import Base
 from models.goodRoad import goodRoad
 from models.poorRoad import poorRoad
 from models.fairRoad import fairRoad
+from models.noCondRoad import noCondRoad
 import sqlalchemy
 
 
@@ -46,3 +47,14 @@ class DBstore:
         """returns all data of a specific class"""
         allObj = self.__session.query(cls).all()
         return(allObj)
+
+    def allcount(self, region):
+        """returns the number of objects from all classes
+        whose region is the provided region
+        """
+        count = 0
+        classes = [noCondRoad, goodRoad, poorRoad, fairRoad]
+        for tab in classes:
+            count += self.__session.query(tab).\
+                filter(tab.region == region).count()
+        return count
