@@ -1,0 +1,163 @@
+/* landing page main style */
+
+/* general styles */
+.button {
+    background-color: var(--red);
+    height: 20pt;
+    padding-top: 5px;
+    width: 40px;
+    border-radius: 20px;
+    text-align: center;
+}
+
+/* style for section1 */
+#section1 {
+    display: flex;
+    justify-content: space-between;
+}
+
+#sec1_part1 {
+    display: flex;
+    flex-direction: column;
+    height: 40vh;
+    margin-top: 50px;
+}
+
+#sec1_part1 .get_started {
+    margin-top: 30px;
+}
+
+#sec1_part1 h1 {
+    font-size: 25pt;
+    font-weight: bold;
+    width: 300px;
+}
+
+#sec1_part1 p.simple {
+    width: 300px;
+    margin-top: 30px;
+}
+#chart {
+    height: 300px;
+}
+img {
+    height: 100%;
+}
+
+/* style for section2 */
+#section2 {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 70px;
+    height: 50vh;
+}
+
+#sec2_part1 {
+    width: 50%;
+    margin-right: 80px;
+}
+#sec2_part1 h2 {
+    font-size: 18pt;
+    font-weight: bold;
+    width: 300px;
+}
+
+#sec2_part1 p {
+    margin-top: 30px;
+    width: 300px;
+}
+
+#sec2_part2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+#sec2_part2 .differences {
+    display: flex;
+    justify-content: space-between;
+}
+
+#sec2_part2 .differences .button {
+    margin-right: 20px;
+}
+
+h3 {
+    font-weight: bold;
+    font-size: 12pt;
+}
+
+.differences .the_diffs p {
+    margin-top: 10px;
+    width: 400px;
+}
+
+/* styles for pre-section 3 */
+.what_said {
+    width: 100%;
+    text-align: center;
+    margin-top: 100px;
+    margin-bottom: 20px;
+    font-size: 20pt;
+}
+
+/* styles for section 3 */
+#section3 {
+    display: flex;
+    justify-content: space-between;
+    margin-left: -12%;
+    margin-right: -12%;
+}
+.person {
+    background-color: rgb(248, 246, 246);
+    margin-right: 20px;
+    height: 200px;
+    border-radius: 10px;
+}
+
+#section3 .person .images {
+    width: 50px;
+    margin-top: -15px;
+    margin-left: 40%;
+}
+#section3 .person .images img {
+    width: 100%;
+}
+
+#section3 .person .person_name {
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+#section3 .person .speech {
+    margin-top: 5px;
+    text-align: center;
+}
+main .get_started {
+    margin: 20px auto;
+}
+
+/* styles for section 4 */
+#section4 {
+    background-color: var(--red);
+    margin-top: 40px;
+    margin-left: -12%;
+    margin-right: -12%;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    background-image: url("../../images/bg-simplify-section-desktop.svg");
+}
+
+#section4 p {
+    padding: 40px;
+    width: 250px;
+    font-weight: bold;
+    color: white;
+}
+
+#section4 .get_started {
+    color: var(--red);
+    background-color: white;
+    height: 22pt;
+    margin-top: 40px;
+}
