@@ -1,9 +1,9 @@
 /* Three columns side by side */
 .column {
   float: left;
-  width: 33.3%;
+  width: 31.9%;
   margin-bottom: 16px;
-  padding: 0 8px;
+  padding: 0 9px;
 }
 
 /* Display the columns below each other instead of side by side on small screens */
@@ -11,6 +11,7 @@
   .column {
     width: 100%;
     display: block;
+    
   }
 }
 
@@ -57,9 +58,9 @@
 
 /* Style all font awesome icons */
 .fa {
-  padding: 24.9px;
+  padding: 24.8px;
   font-size: 30px;
-  width: 50px;
+  width: 45px;
   text-align: center;
   text-decoration: none;
 }
