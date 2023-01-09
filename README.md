@@ -23,7 +23,11 @@ Please refer to the MIT licence in the repository
 * https://github.com/Brian-Machiestay/Project-portfolio-01
 
 ## Screenshots
-![inage]()
+*Landing page 
+![image]()
+
+* Other Pages
+![image]()
 
 ## Constributors:
 * Brian Machiestay-Dzregah Elorm
