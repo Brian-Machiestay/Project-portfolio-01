@@ -17,7 +17,7 @@ N/A
 Please refer to the MIT licence in the repository
 
 ## Landing Page Link
-* Comming soon...
+* https://brian-machiestay.github.io/Project-portfolio-01
 
 ## Link to Github Repository
 * https://github.com/Brian-Machiestay/Project-portfolio-01
