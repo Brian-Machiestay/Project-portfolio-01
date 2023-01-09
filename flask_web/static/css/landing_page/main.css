@@ -118,9 +118,12 @@ h3 {
     width: 50px;
     margin-top: -15px;
     margin-left: 40%;
+    height: 50px;
 }
 #section3 .person .images img {
     width: 100%;
+    border-radius: 25px;
+    height: 100%;
 }
 
 #section3 .person .person_name {

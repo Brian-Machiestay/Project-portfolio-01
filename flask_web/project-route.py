@@ -6,6 +6,11 @@ from flask import render_template
 
 app = Flask(__name__)
 
+@app.route('/', strict_slashes=False)
+def root():
+    """returns the landing page"""
+    return(render_template('index.html'))
+
 
 @app.route('/ghanaRoads/<chart>', strict_slashes=False)
 def for_ghana_roads(chart):
