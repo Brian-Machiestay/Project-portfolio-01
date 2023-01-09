@@ -30,11 +30,11 @@ Please refer to the MIT licence in the repository
 * https://github.com/Brian-Machiestay/Project-portfolio-01
 
 ## Link to Chart Page
-* file:///C:/Users/Damien%20Nsoh/Documents/ALX-SE/Portfolio_Projects/Project-portfolio-01/html/ghana_roads.html
+* Comming soon....
 
 ## Screenshots
 *Landing page 
-![image]()
+![image](https://github.com/Brian-Machiestay/Project-portfolio-01/blob/main/images/Data%20Vis.jpg)
 
 * Other Pages
 ![image]()
