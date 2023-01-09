@@ -200,7 +200,7 @@ $(function () {
       })
     })
     // load and extract fair roads data with percentages for rendering
-    $.get("http://192.168.33.10:5001/api/v1/allFairRoads", function (data) {
+    $.get("http://192.168.33.10:5002/api/v1/allFairRoads", function (data) {
 	$.get("http://192.168.33.10:5002/api/v1/stats", function (dat) {
         let fair_roads = [];
         let fair_roads_no_percent = [];
