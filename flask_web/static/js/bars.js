@@ -187,7 +187,7 @@ $( function () {
     })
 
      // load and extract fair roads data with percentages for rendering
-    $.get("http://192.168.33.10:5001/api/v1/allFairRoads", function (data) {
+    $.get("http://192.168.33.10:5002/api/v1/allFairRoads", function (data) {
 	$.get("http://192.168.33.10:5002/api/v1/stats", function (dat) {
 	  console.log(data)
           let fair_roads = [];
@@ -226,7 +226,7 @@ $( function () {
           barsGen(fair_roads, 300, 470, 2, "svg#fair_rds", 3);
           genLabelsIn(fair_roads, 300, 470, 2, "svg#fair_rds", "%", 3);
           genLabelsDown(fair_roads, 300, 470, 2, "svg#fair_rds");
-            genTitle(130, 380,"svg#fair_rds", "percentage number of fair roads");
+          genTitle(130, 380,"svg#fair_rds", "percentage number of fair roads");
 	})
      })
 })
