@@ -23,3 +23,8 @@ Please refer to the MIT licence in the repository
 
 ## Screenshots
 ![inage]()
+
+## Constributors:
+* Brian Machiestay-Dzregah Elorm
+* Williams
+* Damien Nsoh Ayine
