@@ -38,5 +38,5 @@ Please refer to the MIT licence in the repository
 
 ## Constributors:
 * Brian Machiestay-Dzregah Elorm
-* Williams
+* Nana-Prempeh Williams
 * Damien Nsoh Ayine
