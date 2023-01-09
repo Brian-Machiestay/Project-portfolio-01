@@ -6,7 +6,8 @@ This is a data visualization web application
 ## Installation
 N/A
 
-## Usage
+## User Story
+*
 
 
 
@@ -19,7 +20,7 @@ Please refer to the MIT licence in the repository
 * Comming soon...
 
 ## Link to Github Repository
-*
+* https://github.com/Brian-Machiestay/Project-portfolio-01
 
 ## Screenshots
 ![inage]()
