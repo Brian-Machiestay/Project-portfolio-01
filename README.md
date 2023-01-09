@@ -29,9 +29,6 @@ Please refer to the MIT licence in the repository
 ## Link to Github Repository
 * https://github.com/Brian-Machiestay/Project-portfolio-01
 
-## Link to Chart Page
-* Comming soon....
-
 ## Screenshots
 *Landing page 
 ![image](https://github.com/Brian-Machiestay/Project-portfolio-01/blob/main/images/Data%20Vis.jpg)
