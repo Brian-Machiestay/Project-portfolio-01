@@ -11,6 +11,8 @@ N/A
 
 * I want to see representative bar and pie charts, if a user hovers on a bar, it should be selected and show the average score of roads in that region as well as the highest road score.
 
+* Getting such features on the website will guide and help me as a user making decisions and self as a input figure for subsequent research.  
+
 ## Acceptance Criteria
 * It is done when the Data Visualization (Landing Page) is linked to the Chart pages (Ghana road, pie).
 
@@ -38,5 +40,5 @@ Please refer to the MIT licence in the repository
 
 ## Constributors:
 * Brian Machiestay-Dzregah Elorm
-* Nana-Prempeh Williams
+* Williams Osei Prempeh
 * Damien Nsoh Ayine
