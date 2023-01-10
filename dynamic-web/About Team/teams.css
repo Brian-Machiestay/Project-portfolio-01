@@ -1,0 +1,112 @@
+/* Three columns side by side */
+.column {
+  float: left;
+  width: 31.9%;
+  margin-bottom: 16px;
+  padding: 0 9px;
+}
+
+/* Display the columns below each other instead of side by side on small screens */
+@media screen and (max-width: 650px){
+  .column {
+    width: 100%;
+    display: block;
+    
+  }
+}
+
+
+/* Add some shadows to create a card effect */
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  height: 15vw;
+  object-fit: cover;
+}
+
+/* Some left and right padding inside the container */
+.container {
+  padding: 0 16px;
+}
+
+/* Clear floats */
+.container::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.title {
+  color: grey;
+}
+
+.button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+}
+
+.button:hover {
+  background-color: #555;
+}
+
+
+/* Style all font awesome icons */
+.fa {
+  padding: 24.8px;
+  font-size: 30px;
+  width: 45px;
+  text-align: center;
+  text-decoration: none;
+}
+
+/* Add a hover effect if you want */
+.fa:hover {
+  opacity: 0.7;
+}
+
+/* Set a specific color for each brand */
+
+/* Facebook */
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+
+/* Twitter */
+.fa-twitter {
+  background: #55ACEE;
+  color: white;
+}
+
+.fa-linkedin {
+  background: #007bb5;
+  color: white;
+  }
+
+  .fa-github {
+    background: #d69026;
+    color: white;
+  }
+
+  .card {
+    display: table;
+  width: 100%;
+
+ }
+
+ /* .column {
+    display: table-cell;
+  padding: 16px; 	  
+ } */
+
+ .card-img-top {
+  width: 100%;
+  height: 25vw;
+  object-fit: cover;
+}
