@@ -98,7 +98,7 @@ $( function () {
      }
 
      // load and extract good roads data with percentages for rendering
-     $.get("../../dynamic-web/js/Road-condition.json", function (data) {
+     $.get("../js/Road-condition.json", function (data) {
           let good_roads = [];
           let roads_no_percent = [];
           let regions = ["NOR","EAR","GAR","CER","BAR","ASR","WER","VOR","UER","UWR"]
