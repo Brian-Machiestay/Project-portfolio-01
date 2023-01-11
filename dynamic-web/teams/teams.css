@@ -1,6 +1,23 @@
+/* general styles */
+
+
+/* header */
+header {
+  margin-bottom: 50px;
+  width: 95%;
+  margin-left: -8%;
+}
+
+/* main styles */
+main {
+  margin: auto -10%;
+}
+
 /* Three columns side by side */
+.row {
+  display: flex;
+}
 .column {
-  float: left;
   width: 31.9%;
   margin-bottom: 16px;
   padding: 0 9px;
@@ -28,12 +45,6 @@
   padding: 0 16px;
 }
 
-/* Clear floats */
-.container::after, .row::after {
-  content: "";
-  clear: both;
-  display: table;
-}
 
 .title {
   color: grey;
@@ -60,7 +71,6 @@
 .fa {
   padding: 24.8px;
   font-size: 30px;
-  width: 45px;
   text-align: center;
   text-decoration: none;
 }
@@ -95,9 +105,8 @@
   }
 
   .card {
-    display: table;
   width: 100%;
-
+    display: table;
  }
 
  /* .column {
@@ -109,4 +118,50 @@
   width: 100%;
   height: 25vw;
   object-fit: cover;
+}
+/* footer styles */
+#footer {
+  background-color: black;
+  margin-left: -12%;
+  margin-right: -12%;
+  display: flex;
+  height: 20%;
+  justify-content: space-between;
+}
+
+#footer a, #footer p {
+  color: rgb(145, 143, 143);
+}
+
+#footer .iconic_logo {
+  display: flex;
+  margin-top: 10px;
+  flex-direction: column;
+  width: 200px;
+}
+#footer #icons-so {
+  margin-top: 30px;
+}
+
+#footer ul li, #go, #go #updates, #go p {
+  margin-top: 10px;
+}
+
+#updates {
+  display: flex;
+}
+
+#updates .button {
+  margin-left: 10px;
+  background-color: white;
+  color: rgb(242, 101, 14);
+}
+#footer .button {
+  background-color: white;
+  height: 20pt;
+  padding-top: 5px;
+  width: 40px;
+  border-radius: 20px;
+  text-align: center;
+  color: var(--red);
 }
