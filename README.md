@@ -33,7 +33,7 @@ Please refer to the MIT licence in the repository
 
 ## Screenshots
 * Landing page 
-![image](https://github.com/Brian-Machiestay/Project-portfolio-01/blob/main/images/Data%20Vis.jpg)
+![image](./dynamic-web/images/landing.jpg)
 
 * Charts Page(Bars)
 ![image](https://github.com/Brian-Machiestay/Project-portfolio-01/blob/main/dynamic-web/images/bars.jpg)
