@@ -20,6 +20,10 @@ def for_ghana_roads(chart):
         abort(404)
     return (render_template('ghana_roads.html', chart=chart))
 
+@app.route('/teams', strict_slashes=False)
+def teams():
+    """render the teams page"""
+    return(render_template('Teams_page.html'))
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0')
