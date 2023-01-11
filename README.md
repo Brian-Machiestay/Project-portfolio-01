@@ -35,10 +35,13 @@ Please refer to the MIT licence in the repository
 * Landing page 
 ![image](https://github.com/Brian-Machiestay/Project-portfolio-01/blob/main/images/Data%20Vis.jpg)
 
-* Other Pages
-![image]()
+* Charts Page(Bars)
+![image](https://github.com/Brian-Machiestay/Project-portfolio-01/blob/main/dynamic-web/images/bars.jpg)
 
-## Constributors:
+* Pie:
+![image](https://github.com/Brian-Machiestay/Project-portfolio-01/blob/main/dynamic-web/images/pie.jpg)
+## Contributors:
+
 * Brian Machiestay-Dzregah Elorm
 * Williams Osei Prempeh
 * Damien Nsoh Ayine
