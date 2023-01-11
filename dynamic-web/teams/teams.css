@@ -63,7 +63,7 @@ main {
 }
 
 .button:hover {
-  background-color: #555;
+  background-color: rgb(223, 21, 21);
 }
 
 
@@ -73,6 +73,7 @@ main {
   font-size: 30px;
   text-align: center;
   text-decoration: none;
+  width: 24.1%;
 }
 
 /* Add a hover effect if you want */
@@ -165,3 +166,13 @@ main {
   text-align: center;
   color: var(--red);
 }
+/* 
+.title {
+  color: green;
+} */
+
+h2{
+  font-size: x-large;
+  
+}
+
