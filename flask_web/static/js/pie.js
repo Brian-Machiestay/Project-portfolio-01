@@ -106,8 +106,8 @@ $(function () {
 
    }
 
-    $.get("http://192.168.33.10:5002/api/v1/allGoodRoads", function (data) {
-	$.get("http://192.168.33.10:5002/api/v1/stats", function (dat) {
+    $.get("/api/v1/allGoodRoads", function (data) {
+	$.get("/api/v1/stats", function (dat) {
         let good_roads = [];
         let roads_no_percent = [];
         let regions = ["NOR","EAR","GAR","CER","BAR","ASR","WER","VOR","UER","UWR"]
@@ -154,8 +154,8 @@ $(function () {
     })
 
      // load and extract poor roads data with percentages for rendering
-    $.get("http://192.168.33.10:5002/api/v1/allPoorRoads", function (data) {
-	$.get("http://192.168.33.10:5002/api/v1/stats", function (dat) {
+    $.get("/api/v1/allPoorRoads", function (data) {
+	$.get("/api/v1/stats", function (dat) {
         let poor_roads = [];
         let poor_roads_no_percent = [];
         let regions = ["NOR","EAR","GAR","CER","BAR","ASR","WER","VOR","UER","UWR"];
@@ -200,8 +200,8 @@ $(function () {
       })
     })
     // load and extract fair roads data with percentages for rendering
-    $.get("http://192.168.33.10:5002/api/v1/allFairRoads", function (data) {
-	$.get("http://192.168.33.10:5002/api/v1/stats", function (dat) {
+    $.get("/api/v1/allFairRoads", function (data) {
+	$.get("/api/v1/stats", function (dat) {
         let fair_roads = [];
         let fair_roads_no_percent = [];
         let regions = ["NOR","EAR","GAR","CER","BAR","ASR","WER","VOR","UER","UWR"];
