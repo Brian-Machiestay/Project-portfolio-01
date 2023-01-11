@@ -1,10 +1,11 @@
 # Project-Portfolio-01
 
+
 ## Description
 A full software application (Data Visualization Web Application), a first project portfolio (3 -Member Team) for ALX students.  
 
 ## Installation
-N/A
+It is a web based application that needs no traditional installation, rather just by lauching the index.html file from within the main folder. After launching this index.html file, it takes you straight to the landing page, and from this page, you can access the other pages of the application.
 
 ## User Story
 * I want to visualize road conditions in Ghana both the number and percentages.
@@ -32,7 +33,7 @@ Please refer to the MIT licence in the repository
 * https://github.com/Brian-Machiestay/Project-portfolio-01
 
 ## Screenshots
-*Landing page 
+* Landing page 
 ![image](https://github.com/Brian-Machiestay/Project-portfolio-01/blob/main/images/Data%20Vis.jpg)
 
 * Other Pages

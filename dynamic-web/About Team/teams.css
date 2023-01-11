@@ -52,7 +52,7 @@
 }
 
 .button:hover {
-  background-color: #555;
+  background-color: rgb(219, 26, 26);
 }
 
 
@@ -109,4 +109,34 @@
   width: 100%;
   height: 25vw;
   object-fit: cover;
+}
+
+/* header section */
+nav ul {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  background-color: #d69026;
+}
+
+nav ul li a {
+  font-weight: bold;
+  font-size: 14pt;
+  margin-left: 20px;
+  color: var(--black);
+  
+}
+
+nav ul li a:last-child {
+  margin-right: 2px;
+}
+
+nav ul {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.card-img-top:hover {
+  background-color: #2d2294;
 }
