@@ -4,7 +4,7 @@
 A full software application (Data Visualization Web Application), a first project portfolio (3 -Member Team) for ALX students.  
 
 ## Installation
-This is a web based application that needs no traditional installation. Rather, you just the application from within the main folder by double clicking on the index.html file which launches into the landing page. From this landing page, you can then have access to the other pages by clicking on their respective buttons from the navigation bar.
+This is a web based application that needs no traditional installation. Rather, you just launch the application from within the main folder by double clicking on the index.html file which launches into the landing page. From this landing page, you can then have access to the other pages by clicking on their respective buttons from the navigation bar.
 
 ## User Story
 * I want to visualize road conditions in Ghana both the number and percentages.
@@ -33,12 +33,15 @@ Please refer to the MIT licence in the repository
 
 ## Screenshots
 * Landing page 
-![image](https://github.com/Brian-Machiestay/Project-portfolio-01/blob/main/images/Data%20Vis.jpg)
+![image](./dynamic-web/images/landing.jpg)
 
-* Other Pages
-![image]()
+* Charts Page(Bars)
+![image](https://github.com/Brian-Machiestay/Project-portfolio-01/blob/main/dynamic-web/images/bars.jpg)
 
-## Constributors:
+* Pie:
+![image](https://github.com/Brian-Machiestay/Project-portfolio-01/blob/main/dynamic-web/images/pie.jpg)
+## Contributors:
+
 * Brian Machiestay-Dzregah Elorm
 * Williams Osei Prempeh
 * Damien Nsoh Ayine
