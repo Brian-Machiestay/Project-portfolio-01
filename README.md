@@ -1,7 +1,7 @@
 # Project-Portfolio-01
 
 ## Description
-A web based full stack software application that visualizes data on the road conditions in Ghana in the form of bar and pie charts. The data was analyzed and the necessary information needed to make a pictorial representation of the data was displayed in an intuitive manner, one that would be understood by everyone. The technologies and languages used for building this application includes D3, bootstrap, js, jquery, python, flask, mysql, linux. Find the link to the deployed front-end application [here](/)
+A web based full stack software application that visualizes data on the road conditions in Ghana in the form of bar and pie charts. The data was analyzed and the necessary information needed to make a pictorial representation of the data was displayed in an intuitive manner, one that would be understood by everyone. The technologies and languages used for building this application includes D3, bootstrap, js, jquery, python, flask, mysql, linux. Find the link to the deployed front-end application [here](https://brian-machiestay.github.io/Project-portfolio-01/)
 
 ## Installation
 This is a web based application that needs no traditional installation. Rather, you just launch the application from within the main folder by double clicking on the index.html file which launches into the landing page. From this landing page, you can then have access to the other pages by clicking on their respective buttons from the navigation bar.
